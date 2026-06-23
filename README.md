@@ -81,6 +81,15 @@ nepal-remittance-economic-tracker/
 6. **62% of all years (20 out of 32) showed greater than 10% annual growth**
    — confirmed through SQL window function analysis using LAG() and CTE.
 
+7. **Remittance distribution is right-skewed** — most years (especially 1993–2001)
+   had low dollar inflows clustered below $1 billion, while recent years pull the
+   tail far right toward $11 billion, reflecting rapid economic transformation.
+
+8. **Strong positive correlation (r = 0.85) between remittance dollar amount and**
+   **% of GDP** — as absolute remittances grew, Nepal's economic dependency grew
+   alongside it. However, recent years show a plateau around 24–27% of GDP,
+   suggesting Nepal's broader economy is also expanding.
+
 ---
 
 ## Visualizations
@@ -97,7 +106,16 @@ nepal-remittance-economic-tracker/
 
 ![YoY Change](visuals/yoy_change.png)
 
----
+### Distribution of Remittance Values
+
+![Distributions](visuals/distributions.png)
+_Left: Right-skewed distribution of remittance dollar amounts._
+_Right: Bimodal distribution of remittance as % of GDP,_
+_reflecting Nepal's transition from low to high dependency._
+
+### Correlation: Remittance (USD) vs % of GDP
+
+## ![Correlation](visuals/correlation.png)
 
 ## How to Run
 

@@ -65,3 +65,39 @@ plt.grid(True, axis='y', alpha=0.3)
 plt.savefig('visuals/yoy_change.png', dpi=300, bbox_inches='tight')
 plt.show()
 
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Distribution of remittance_usd
+plt.figure(figsize=(10, 4))
+
+plt.subplot(1, 2, 1)
+plt.hist(df['remittance_usd'] / 1e9, bins=10, color='#2c7fb8', edgecolor='black')
+plt.title('Distribution of Remittance (Billion USD)')
+plt.xlabel('Billion USD')
+plt.ylabel('Frequency')
+
+plt.subplot(1, 2, 2)
+plt.hist(df['pct_gdp'], bins=10, color='#d95f02', edgecolor='black')
+plt.title('Distribution of Remittance (% of GDP)')
+plt.xlabel('% of GDP')
+plt.ylabel('Frequency')
+
+plt.tight_layout()
+plt.savefig('visuals/distributions.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# Correlation between remittance_usd and pct_gdp
+correlation = df['remittance_usd'].corr(df['pct_gdp'])
+print(f"Correlation between Remittance (USD) and % of GDP: {correlation:.2f}")
+plt.figure(figsize=(8, 5))
+plt.scatter(df['remittance_usd'] / 1e9, df['pct_gdp'], 
+            color='#2c7fb8', edgecolor='black', s=60)
+
+plt.title('Correlation: Remittance (USD) vs % of GDP', fontsize=13, fontweight='bold')
+plt.xlabel('Remittance (Billion USD)')
+plt.ylabel('% of GDP')
+plt.grid(True, alpha=0.3)
+
+plt.savefig('visuals/correlation.png', dpi=300, bbox_inches='tight')
+plt.show()
